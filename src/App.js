@@ -1,9 +1,8 @@
 // App.js
 import React from 'react';
-import { OctagonX, Clock, Users, Target, Microscope, ArrowRight, BrainCircuit } from 'lucide-react';
+import { OctagonX, Handshake, ArrowLeftRight, ArrowRightLeft, Clock, Users, Target, Microscope, ArrowRight, BrainCircuit, FlaskConical, GitBranch, Code, Network} from 'lucide-react';
 import './App.css';
 import { Dna } from 'lucide-react';
-
 
 const Panel = ({ title, children, className }) => (
   <div className={`panel ${className}`}>
@@ -140,13 +139,123 @@ const ImpactPanel = () => (
   </Panel>
 );
 
-const App = () => {
+const CollaborationPanel = () => (
+  <Panel title={
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center', 
+      gap: '0.5rem',
+      justifyContent: 'center',
+      marginTop: '-0.5rem',
+      fontSize: '1.75rem'
+    }}>
+      Central Interdisciplinary Collaboration
+      <Handshake size={28} />
+    </div>
+  } className="collaboration-panel">
+    <div className="collaboration-content" style={{
+      padding: '2rem',
+      background: 'linear-gradient(135deg, #7A0019 20%, #FFCC33 100%)',
+      borderRadius: '0.5rem',
+      color: 'white',
+      maxWidth: '100%',
+      margin: '0 auto',
+      overflow: 'hidden'
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '1.5rem',
+        width: '100%'
+      }}>
+        <div className="collab-section" style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          padding: '1.5rem',
+          borderRadius: '0.5rem',
+          backdropFilter: 'blur(10px)',
+          flex: '1',
+          maxWidth: '300px'
+        }}>
+          <h4 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Code /> Population Genomics Lab
+          </h4>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li>• Biobank Integration</li>
+            <li>• Structural Variant Analysis</li>
+            <li>• Machine Learning Models</li>
+            <li>• Population Statistics</li>
+          </ul>
+        </div>
+
+        <ArrowLeftRight 
+          style={{
+            color: 'white',
+            width: '24px',
+            height: '24px',
+            flexShrink: 0
+          }}
+        />
+
+        <div className="collab-section" style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          padding: '1.5rem',
+          borderRadius: '0.5rem',
+          backdropFilter: 'blur(10px)',
+          flex: '1',
+          maxWidth: '300px'
+        }}>
+          <h4 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Network /> Shared Resources
+          </h4>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li>• Data Integration Pipeline</li>
+            <li>• Validation Protocols</li>
+            <li>• Joint Publications</li>
+            <li>• Cross-team Meetings</li>
+            <li>• Computing Resources</li>
+          </ul>
+        </div>
+
+        <ArrowRightLeft 
+          style={{
+            color: 'white',
+            width: '24px',
+            height: '24px',
+            flexShrink: 0
+          }}
+        />
+
+        <div className="collab-section" style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          padding: '1.5rem',
+          borderRadius: '0.5rem',
+          backdropFilter: 'blur(10px)',
+          flex: '1',
+          maxWidth: '300px'
+        }}>
+          <h4 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <FlaskConical /> Center for Drug Design
+          </h4>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li>• GPCR Expertise</li>
+            <li>• Drug Development Pipeline</li>
+            <li>• Historical Trial Data</li>
+            <li>• Framework Validation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </Panel>
+);
+ 
+ const App = () => {
   return (
     <div className="abstract-container">
       <h1 className="main-title" style={{ color: '#2d3748', fontSize: '2rem' }}>
         Population Genomics for Improved Drug Target Discovery
       </h1>
-
+ 
       <div className="panels-container" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1rem' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <ChallengePanel />
@@ -161,8 +270,13 @@ const App = () => {
         </div>
         <ImpactPanel />
       </div>
+ 
+      <div style={{ marginTop: '2rem', width: '100%' }}>
+        <CollaborationPanel />
+      </div>
     </div>
   );
-};
+ };
+ 
 
 export default App;
